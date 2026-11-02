@@ -1,0 +1,5 @@
+{
+  "_title": "Backend error (server returns 500)",
+  "_order": 8,
+  "_simulate": "http_500"
+}

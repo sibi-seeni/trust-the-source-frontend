@@ -1,0 +1,35 @@
+{
+  "_title": "Newer version available",
+  "_order": 3,
+  "question_id": "q-mileage-rate",
+  "question": "What is the standard mileage rate for business use?",
+  "answer": "The business standard mileage rate is 67 cents per mile.",
+  "status": "outdated",
+  "status_reason": "this answer uses an older document.",
+  "limits": "We found a newer version. We have not checked whether the older value still applies.",
+  "next_action": "Open the newer document and confirm the value before you use this answer.",
+  "excerpts": [
+    {
+      "label": "A",
+      "text": "The standard mileage rate for business use is 67 cents per mile.",
+      "highlight": "67 cents",
+      "doc_title": "Standard mileage rates notice",
+      "doc_version": "2024",
+      "doc_date": "Dec 2023",
+      "page": 1,
+      "source_url": ""
+    },
+    {
+      "label": "B",
+      "text": "The standard mileage rate for business use is 70 cents per mile.",
+      "highlight": "70 cents",
+      "doc_title": "Standard mileage rates notice",
+      "doc_version": "2025",
+      "doc_date": "Dec 2024",
+      "page": 1,
+      "source_url": ""
+    }
+  ],
+  "checks_run": ["version_check", "content_comparison"],
+  "checks_failed": []
+}

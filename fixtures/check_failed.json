@@ -1,0 +1,24 @@
+{
+  "_title": "Check did not run (timeout)",
+  "_order": 5,
+  "question_id": "q-lookback-2025",
+  "question": "What is the lookback period for 2025 deposit schedules?",
+  "answer": "The lookback period for 2025 is July 1, 2023, through June 30, 2024.",
+  "status": "check_failed",
+  "status_reason": "treat this answer as unchecked.",
+  "limits": "The comparison check timed out, so we did not compare this answer with other sources.",
+  "next_action": "Open the source yourself, or run the check again before relying on the answer.",
+  "excerpts": [
+    {
+      "label": "A",
+      "text": "For 2025, the lookback period is July 1, 2023, through June 30, 2024.",
+      "highlight": "July 1, 2023, through June 30, 2024",
+      "doc_title": "Publication 15",
+      "doc_version": "2025",
+      "page": 26,
+      "source_url": ""
+    }
+  ],
+  "checks_run": ["version_check"],
+  "checks_failed": ["content_comparison"]
+}

@@ -1,0 +1,33 @@
+{
+  "_title": "All clear",
+  "_order": 2,
+  "question_id": "q-941-q1-deadline-2025",
+  "question": "When is Form 941 due for the first quarter of 2025?",
+  "answer": "Form 941 for January to March 2025 is due April 30, 2025.",
+  "status": "all_clear",
+  "status_reason": "no conflicts found in the sources used",
+  "limits": "We compared the sources used for this answer. We did not check documents outside the library.",
+  "next_action": "Use the answer as usual, or open the sources to read the passages.",
+  "excerpts": [
+    {
+      "label": "A",
+      "text": "Form 941 for the first quarter (January, February, March) is due April 30.",
+      "highlight": "April 30",
+      "doc_title": "Instructions for Form 941",
+      "doc_version": "2025",
+      "page": 2,
+      "source_url": ""
+    },
+    {
+      "label": "B",
+      "text": "File Form 941 for the quarter ending March 31 by April 30.",
+      "highlight": "April 30",
+      "doc_title": "Publication 15",
+      "doc_version": "2025",
+      "page": 4,
+      "source_url": ""
+    }
+  ],
+  "checks_run": ["version_check", "content_comparison"],
+  "checks_failed": []
+}

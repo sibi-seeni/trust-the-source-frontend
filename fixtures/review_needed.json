@@ -1,0 +1,35 @@
+{
+  "_title": "Review needed (slide 8 walkthrough)",
+  "_order": 1,
+  "question_id": "q-wage-threshold-2025",
+  "question": "What is the wage threshold in the 2025 instructions?",
+  "answer": "The threshold is $2,240.",
+  "status": "review_needed",
+  "status_reason": "These sources state different values.",
+  "limits": "We found disagreement. We have not established which value applies.",
+  "next_action": "Open both sources, check an independent reference or ask the document owner.",
+  "excerpts": [
+    {
+      "label": "A",
+      "text": "Wages of less than $2,800",
+      "passage": "Household employees. Wages of less than $2,800 paid to a household employee in 2025 are not subject to social security and Medicare taxes.",
+      "highlight": "$2,800",
+      "doc_title": "2025 Instructions",
+      "doc_version": "2025",
+      "page": 3,
+      "source_url": ""
+    },
+    {
+      "label": "B",
+      "text": "Wages of less than $2,240",
+      "passage": "Household employees. Wages of less than $2,240 paid to a household employee in 2025 are not subject to social security and Medicare taxes.",
+      "highlight": "$2,240",
+      "doc_title": "2025 Instructions",
+      "doc_version": "2025",
+      "page": 3,
+      "source_url": ""
+    }
+  ],
+  "checks_run": ["version_check", "content_comparison"],
+  "checks_failed": []
+}

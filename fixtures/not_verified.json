@@ -1,0 +1,24 @@
+{
+  "_title": "Could not verify",
+  "_order": 4,
+  "question_id": "q-ss-wage-base-2025",
+  "question": "What is the social security wage base for 2025?",
+  "answer": "The social security wage base for 2025 is $176,100.",
+  "status": "not_verified",
+  "status_reason": "we had nothing to check this source against.",
+  "limits": "We had only this one source, so we could not compare it with anything.",
+  "next_action": "Open the source and compare it with an independent reference before relying on it.",
+  "excerpts": [
+    {
+      "label": "A",
+      "text": "The social security wage base limit is $176,100.",
+      "highlight": "$176,100",
+      "doc_title": "Publication 15",
+      "doc_version": "2025",
+      "page": 5,
+      "source_url": ""
+    }
+  ],
+  "checks_run": ["version_check"],
+  "checks_failed": []
+}

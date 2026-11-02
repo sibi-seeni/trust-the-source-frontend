@@ -1,0 +1,42 @@
+{
+  "_title": "Several checks fire (backend picks the most serious)",
+  "_order": 6,
+  "_check_outcomes": {
+    "version_check": "outdated",
+    "content_comparison": "review_needed"
+  },
+  "question_id": "q-household-threshold",
+  "question": "What is the household employee wage threshold?",
+  "answer": "The threshold is $2,240.",
+  "excerpts": [
+    {
+      "label": "A",
+      "text": "Wages of less than $2,800",
+      "highlight": "$2,800",
+      "doc_title": "2025 Instructions",
+      "doc_version": "2025",
+      "page": 3,
+      "source_url": ""
+    },
+    {
+      "label": "B",
+      "text": "Wages of less than $2,240",
+      "highlight": "$2,240",
+      "doc_title": "2025 Instructions",
+      "doc_version": "2025",
+      "page": 3,
+      "source_url": ""
+    },
+    {
+      "label": "C",
+      "text": "Wages of less than $2,700",
+      "highlight": "$2,700",
+      "doc_title": "2024 Instructions",
+      "doc_version": "2024",
+      "doc_date": "Jan 2024",
+      "page": 3,
+      "source_url": ""
+    }
+  ],
+  "checks_failed": []
+}

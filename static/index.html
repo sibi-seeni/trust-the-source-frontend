@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trust layer check</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <!-- Demo-only controls. Not part of the product screen. -->
+  <div class="demo-bar" role="region" aria-label="Demo controls">
+    <label for="scenario">Demo state</label>
+    <select id="scenario"></select>
+    <button type="button" id="rerun" class="demo-btn">Run again</button>
+    <span class="demo-bar__spacer"></span>
+    <button type="button" id="download-log" class="demo-btn">Download log (<span id="log-count">0</span>)</button>
+    <button type="button" id="clear-log" class="demo-btn">Clear log</button>
+  </div>
+
+  <main class="page">
+    <!-- Named layout areas. Components fill them; the workbench can add areas later. -->
+    <article class="card" aria-label="Answer check">
+      <div class="area area--header" data-area="header"></div>
+      <div class="area area--status" data-area="status" role="status" aria-live="polite" aria-atomic="true"></div>
+      <div class="area area--answer" data-area="answer"></div>
+      <div class="area area--evidence" data-area="evidence"></div>
+      <div class="area area--actions" data-area="actions"></div>
+      <div class="area area--review" data-area="review"></div>
+    </article>
+  </main>
+
+  <dialog id="source-dialog" class="source-dialog" aria-labelledby="source-dialog-title"></dialog>
+</body>
+</html>
