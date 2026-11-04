@@ -89,7 +89,7 @@ Actions: `screen_shown`, `ask_question` (number of documents only; the question 
 ```
 server.py                  Static server and simulated trust layer backend
 fixtures/                  Saved responses, one per scenario
-static/index.html          Page with three zones (answer + status, sources + limits, next action) of named areas
+static/index.html          Page with two zones (answer + status; sources, limits and next action) of named areas
 static/css/styles.css      Deck colours, layout, narrow-screen stacking
 static/js/app.js           Thin layout: fetch, hand the response to each component, logging
 static/js/states.js        How each status is shown (label, icon, answer and excerpt behaviour)
