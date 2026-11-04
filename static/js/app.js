@@ -5,6 +5,7 @@ import * as log from './log.js';
 import { STATES } from './states.js';
 import { renderAnswerPanel } from './components/answerPanel.js';
 import { renderEvidence } from './components/evidence.js';
+import { renderLanding } from './components/landing.js';
 import { renderNextAction } from './components/nextAction.js';
 import { renderQuestionBar } from './components/questionBar.js';
 import { renderReviewControls } from './components/reviewControls.js';
@@ -13,8 +14,15 @@ import { renderStatusBanner } from './components/statusBanner.js';
 
 const areas = Object.fromEntries(
   [...document.querySelectorAll('[data-area]')].map((el) => [el.dataset.area, el]));
+const landingView = document.querySelector('[data-view="landing"]');
+const checkView = document.querySelector('[data-view="check"]');
 const scenarioSelect = document.getElementById('scenario');
 const logCount = document.getElementById('log-count');
+
+// Demo-only entry in the dropdown; it is not a saved backend response.
+const LANDING = { id: 'landing', title: 'Landing page (Signet)' };
+// Questions typed on the landing page go to this scenario until the harness is connected.
+const TYPED_QUESTION_SCENARIO = 'review_needed';
 
 // Shown whenever the backend errors or sends something unreadable. Never all clear.
 const UNCHECKED = {
@@ -42,13 +50,39 @@ const handlers = {
   },
   onReviewed: (choice) => log.record('reviewed', { choice }),
   onFeedback: (helpful, comment) => log.record('feedback', comment ? { helpful, comment } : { helpful }),
+  // The question text itself is not logged, in case it contains personal details.
+  onAsk: (question, documents) => {
+    log.record('ask_question', { documents });
+    showScenario(TYPED_QUESTION_SCENARIO, question);
+  },
+  onDocumentsChanged: (action, detail) => log.record(action, detail),
 };
+
+function showLanding() {
+  latestRequest += 1; // drop any check still in flight
+  checkView.hidden = true;
+  landingView.hidden = false;
+  landingView.replaceChildren(renderLanding(handlers));
+  log.startScreen(null, 'landing');
+  log.record('screen_shown', { scenario: LANDING.id });
+  document.getElementById('ask-input').focus();
+}
+
+// Switch the dropdown and URL, then show that scenario (or the landing page).
+function showScenario(scenario, question) {
+  scenarioSelect.value = scenario;
+  const params = new URLSearchParams(location.search);
+  params.set('state', scenario);
+  history.replaceState(null, '', `?${params}`);
+  if (scenario === LANDING.id) showLanding();
+  else loadScenario(scenario, question);
+}
 
 function render(data) {
   const parts = {
     header: renderQuestionBar(data),
-    status: renderStatusBanner(data),
     answer: renderAnswerPanel(data, handlers),
+    status: renderStatusBanner(data),
     evidence: renderEvidence(data, handlers),
     actions: renderNextAction(data, handlers),
     review: renderReviewControls(data, handlers),
@@ -67,9 +101,10 @@ function normalise(data) {
   return { ...data, ...UNCHECKED, excerpts };
 }
 
-async function fetchCheck(scenario) {
+async function fetchCheck(scenario, question) {
   try {
-    const response = await fetch(`/api/check?scenario=${encodeURIComponent(scenario)}`);
+    const params = new URLSearchParams({ scenario, ...(question && { question }) });
+    const response = await fetch(`/api/check?${params}`);
     if (!response.ok) throw new Error(`checks service answered HTTP ${response.status}`);
     return normalise(await response.json());
   } catch (error) {
@@ -80,10 +115,12 @@ async function fetchCheck(scenario) {
 
 let latestRequest = 0;
 
-async function loadScenario(scenario) {
+async function loadScenario(scenario, question) {
   const request = ++latestRequest;
-  render({ status: 'loading', excerpts: [] });
-  const data = await fetchCheck(scenario);
+  landingView.hidden = true;
+  checkView.hidden = false;
+  render({ status: 'loading', question, excerpts: [] });
+  const data = await fetchCheck(scenario, question);
   if (request !== latestRequest) return; // a newer switch already replaced this one
   log.startScreen(data.question_id ?? null, data.status);
   render(data);
@@ -97,18 +134,14 @@ async function setUpDemoBar() {
   } catch {
     scenarios = [{ id: 'review_needed', title: 'Review needed' }];
   }
+  scenarios = [LANDING, ...scenarios];
   scenarioSelect.replaceChildren(...scenarios.map(({ id, title }) => new Option(title, id)));
 
-  const params = new URLSearchParams(location.search);
-  const requested = params.get('state');
-  scenarioSelect.value = scenarios.some((s) => s.id === requested) ? requested : 'review_needed';
+  const requested = new URLSearchParams(location.search).get('state');
+  scenarioSelect.value = scenarios.some((s) => s.id === requested) ? requested : LANDING.id;
 
-  scenarioSelect.addEventListener('change', () => {
-    params.set('state', scenarioSelect.value);
-    history.replaceState(null, '', `?${params}`);
-    loadScenario(scenarioSelect.value);
-  });
-  document.getElementById('rerun').addEventListener('click', () => loadScenario(scenarioSelect.value));
+  scenarioSelect.addEventListener('change', () => showScenario(scenarioSelect.value));
+  document.getElementById('rerun').addEventListener('click', () => showScenario(scenarioSelect.value));
   document.getElementById('download-log').addEventListener('click', log.download);
   document.getElementById('clear-log').addEventListener('click', () => {
     if (confirm('Clear the demo log in this browser?')) log.clear();
@@ -119,4 +152,4 @@ async function setUpDemoBar() {
 }
 
 await setUpDemoBar();
-loadScenario(scenarioSelect.value);
+showScenario(scenarioSelect.value);

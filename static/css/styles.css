@@ -9,12 +9,14 @@
   --muted: #45546B;
   --border: #C6D2E3;
   --white: #FFFFFF;
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Falls back to system fonts when offline, so the demo still works without internet. */
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-brand: "Outfit", var(--font);
 }
 
 * { box-sizing: border-box; }
 body { margin: 0; font: 16px/1.45 var(--font); color: var(--text); background: var(--white); }
-button, input, select { font: inherit; color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
 :focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
 [hidden] { display: none !important; }
 .sr-only {
@@ -40,7 +42,7 @@ button, input, select { font: inherit; color: inherit; }
 .card {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: "header" "status" "answer" "evidence" "actions" "review";
+  grid-template-areas: "header" "answer" "status" "evidence" "actions" "review";
   gap: 12px;
   background: var(--fill); border: 1px solid var(--border); border-radius: 12px;
   padding: 16px 20px;
@@ -147,9 +149,37 @@ button, input, select { font: inherit; color: inherit; }
 .dialog__text { margin: 0 0 12px; padding: 12px 14px; background: var(--fill); border-left: 4px solid var(--navy); font-size: 17px; }
 .dialog__note { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
 
+/* Signet landing page */
+.landing { min-height: calc(100vh - 96px); display: flex; align-items: center; justify-content: center; padding: 24px 0; }
+.landing__inner { width: min(680px, 100%); display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+.brand { margin: 0; font-family: var(--font-brand); font-size: 56px; line-height: 1.1; font-weight: 800; letter-spacing: -.01em; color: var(--navy); }
+.brand__tagline { margin: -6px 0 8px; font-size: 17px; color: var(--muted); }
+.ask {
+  width: 100%; display: flex; align-items: flex-end; gap: 8px; padding: 8px; text-align: left;
+  background: var(--white); border: 2px solid var(--border); border-radius: 12px;
+}
+.ask:focus-within { border-color: var(--blue); }
+.ask__input { flex: 1; min-width: 0; resize: none; border: 0; padding: 8px; font-size: 17px; line-height: 1.4; background: transparent; }
+.ask__input:focus-visible { outline: none; } /* the whole box shows focus instead */
+.ask__error { margin: -8px 0 0; align-self: flex-start; }
+.ask__error:empty { display: none; }
+.upload { width: 100%; padding: 16px; background: var(--fill); border: 2px dashed var(--border); border-radius: 12px; }
+.upload--over { border-color: var(--blue); background: #E3EAF7; }
+.upload p { margin: 0; }
+.upload__title { margin: 0 0 4px; font-size: 17px; color: var(--navy); }
+.upload__note { margin-top: 4px !important; font-size: 14px; color: var(--muted); }
+.upload__list { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.upload__item {
+  display: flex; align-items: baseline; gap: 12px; padding: 6px 10px; font-size: 14px;
+  background: var(--white); border: 1px solid var(--border); border-radius: 6px;
+}
+.upload__name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.upload__size { color: var(--muted); }
+
 /* Narrow windows: stack the excerpt cards */
 @media (max-width: 720px) {
   .excerpts { grid-template-columns: minmax(0, 1fr); }
   .card { padding: 14px; }
   .question { font-size: 18px; }
+  .brand { font-size: 44px; }
 }

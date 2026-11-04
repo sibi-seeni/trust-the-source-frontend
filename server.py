@@ -159,6 +159,13 @@ class Handler(SimpleHTTPRequestHandler):
             body = build_response(fixture)
         except Exception as error:  # any backend fault becomes a visible failed check
             body = failed_response(fixture, error)
+
+        # A question typed on the landing page replaces the saved one, so the
+        # screen shows what the analyst asked. The real harness answers it instead.
+        typed = (query.get("question") or [""])[0].strip()[:500]
+        if typed:
+            body["question"] = typed
+            body["question_id"] = "q-typed"
         self.send_json(body)
 
     def send_json(self, body, status=HTTPStatus.OK):

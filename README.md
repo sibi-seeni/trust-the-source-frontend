@@ -19,7 +19,8 @@ Use the **Demo state** dropdown at the top to switch between saved responses. Yo
 
 ## Demo script
 
-1. **Review needed** (opens by default; this is the slide 8 walkthrough). Point out the banner, the held-back answer, excerpts A and B with $2,800 and $2,240 highlighted, the limits line and the next action.
+0. **Landing page** (opens by default). It shows Signet, the question box and the document area. Drag in a document or two; they're listed but stay in the browser. Type any question and press Enter. Until the harness is connected, every typed question goes to the review needed result, with your question in the question bar.
+1. **Review needed** (the slide 8 walkthrough). Point out the banner, the held-back answer, excerpts A and B with $2,800 and $2,240 highlighted, the limits line and the next action.
 2. Click **Open source** on excerpt A. No document link is set, so the full passage opens in a dialog.
 3. Click **Ask document owner**. A message with the question and both excerpts is copied to the clipboard.
 4. Click **Show answer anyway**. The answer appears and the banner stays.
@@ -81,7 +82,7 @@ Every click writes one entry. Entries go to the browser console, are kept in bro
   "state": "review_needed", "action": "open_source", "detail": { "excerpt": "A" }, "ms_since_load": 5120 }
 ```
 
-Actions: `screen_shown`, `show_answer`, `open_source`, `close_source`, `view_sources`, `hide_sources`, `show_more_sources`, `check_reference`, `ask_owner`, `reviewed` (choice `used_A`, `used_B`, `used_neither` or `escalated`), and `feedback`. Keep these names stable, because the later review history will be built from them.
+Actions: `screen_shown`, `ask_question` (number of documents only; the question text isn't logged), `add_documents`, `remove_document`, `show_answer`, `open_source`, `close_source`, `view_sources`, `hide_sources`, `show_more_sources`, `check_reference`, `ask_owner`, `reviewed` (choice `used_A`, `used_B`, `used_neither` or `escalated`), and `feedback`. Keep these names stable, because the later review history will be built from them.
 
 ## Code layout
 
@@ -93,7 +94,7 @@ static/css/styles.css      Deck colours, layout, narrow-screen stacking
 static/js/app.js           Thin layout: fetch, hand the response to each component, logging
 static/js/states.js        How each status is shown (label, icon, answer and excerpt behaviour)
 static/js/log.js           Demo interaction log
-static/js/components/      One file per component; none knows about another
+static/js/components/      One file per component; none knows about another (landing.js is the Signet start page)
 tests/check_wording.py     Checks copy against the wording rules
 ```
 

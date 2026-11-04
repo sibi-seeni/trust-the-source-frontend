@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trust layer check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
   <script type="module" src="js/app.js"></script>
 </head>
@@ -19,11 +22,13 @@
   </div>
 
   <main class="page">
+    <section class="landing" data-view="landing" aria-label="Ask Signet" hidden></section>
+
     <!-- Named layout areas. Components fill them; the workbench can add areas later. -->
-    <article class="card" aria-label="Answer check">
+    <article class="card" data-view="check" aria-label="Answer check">
       <div class="area area--header" data-area="header"></div>
-      <div class="area area--status" data-area="status" role="status" aria-live="polite" aria-atomic="true"></div>
       <div class="area area--answer" data-area="answer"></div>
+      <div class="area area--status" data-area="status" role="status" aria-live="polite" aria-atomic="true"></div>
       <div class="area area--evidence" data-area="evidence"></div>
       <div class="area area--actions" data-area="actions"></div>
       <div class="area area--review" data-area="review"></div>

@@ -4,8 +4,8 @@
     {
       "name": "trust-layer-demo",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["server.py", "8000"],
-      "port": 8000
+      "runtimeArgs": ["server.py", "8001"],
+      "port": 8001
     }
   ]
 }
