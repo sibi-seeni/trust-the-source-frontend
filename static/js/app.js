@@ -6,6 +6,7 @@ import { STATES } from './states.js';
 import { renderAnswerPanel } from './components/answerPanel.js';
 import { renderEvidence } from './components/evidence.js';
 import { renderLanding } from './components/landing.js';
+import { renderLimits } from './components/limits.js';
 import { renderNextAction } from './components/nextAction.js';
 import { renderQuestionBar } from './components/questionBar.js';
 import { renderReviewControls } from './components/reviewControls.js';
@@ -14,7 +15,8 @@ import { renderStatusBanner } from './components/statusBanner.js';
 
 const areas = Object.fromEntries(
   [...document.querySelectorAll('[data-area]')].map((el) => [el.dataset.area, el]));
-const landingView = document.querySelector('[data-view="landing"]');
+const zones = document.querySelectorAll('.zone');
+const landingView =document.querySelector('[data-view="landing"]');
 const checkView = document.querySelector('[data-view="check"]');
 const scenarioSelect = document.getElementById('scenario');
 const logCount = document.getElementById('log-count');
@@ -84,12 +86,17 @@ function render(data) {
     answer: renderAnswerPanel(data, handlers),
     status: renderStatusBanner(data),
     evidence: renderEvidence(data, handlers),
+    limits: renderLimits(data),
     actions: renderNextAction(data, handlers),
     review: renderReviewControls(data, handlers),
   };
   for (const [name, node] of Object.entries(parts)) {
     areas[name].replaceChildren(...(node ? [node] : []));
     areas[name].hidden = !node;
+  }
+  // A zone with nothing in it disappears, so empty states don't leave gaps or stray labels.
+  for (const zone of zones) {
+    zone.hidden = [...zone.querySelectorAll('[data-area]')].every((area) => area.hidden);
   }
 }
 

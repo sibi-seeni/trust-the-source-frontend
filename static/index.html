@@ -27,10 +27,21 @@
     <!-- Named layout areas. Components fill them; the workbench can add areas later. -->
     <article class="card" data-view="check" aria-label="Answer check">
       <div class="area area--header" data-area="header"></div>
-      <div class="area area--answer" data-area="answer"></div>
-      <div class="area area--status" data-area="status" role="status" aria-live="polite" aria-atomic="true"></div>
-      <div class="area area--evidence" data-area="evidence"></div>
-      <div class="area area--actions" data-area="actions"></div>
+      <!-- Zone 1: the answer with its check status attached underneath -->
+      <div class="zone zone--answer">
+        <div class="area area--answer" data-area="answer"></div>
+        <div class="area area--status" data-area="status" role="status" aria-live="polite" aria-atomic="true"></div>
+      </div>
+      <!-- Zone 2: the evidence and what the check did not establish -->
+      <section class="zone zone--sources" aria-labelledby="sources-label">
+        <h2 class="zone__label" id="sources-label">Sources behind this answer</h2>
+        <div class="area area--evidence" data-area="evidence"></div>
+        <div class="area area--limits" data-area="limits"></div>
+      </section>
+      <!-- Zone 3: what to do next -->
+      <div class="zone zone--next">
+        <div class="area area--actions" data-area="actions"></div>
+      </div>
       <div class="area area--review" data-area="review"></div>
     </article>
   </main>

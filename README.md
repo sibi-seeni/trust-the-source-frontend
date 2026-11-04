@@ -89,12 +89,12 @@ Actions: `screen_shown`, `ask_question` (number of documents only; the question 
 ```
 server.py                  Static server and simulated trust layer backend
 fixtures/                  Saved responses, one per scenario
-static/index.html          Page with named layout areas: header, status, answer, evidence, actions, review
+static/index.html          Page with three zones (answer + status, sources + limits, next action) of named areas
 static/css/styles.css      Deck colours, layout, narrow-screen stacking
 static/js/app.js           Thin layout: fetch, hand the response to each component, logging
 static/js/states.js        How each status is shown (label, icon, answer and excerpt behaviour)
 static/js/log.js           Demo interaction log
-static/js/components/      One file per component; none knows about another (landing.js is the Signet start page)
+static/js/components/      One file per component; none knows about another (landing.js is the Signet start page; limits.js is the limits line)
 tests/check_wording.py     Checks copy against the wording rules
 ```
 

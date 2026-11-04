@@ -1,12 +1,11 @@
 import { describeSource, h } from '../dom.js';
 import { STATES } from '../states.js';
 
-// Limits line, next-action guidance and the action buttons.
+// Next-action guidance and the action buttons. The limits line lives in limits.js.
 export function renderNextAction(data, { onCheckReference, onAskOwner }) {
   if (data.status === 'loading') return null;
 
   const row = h('div', { class: 'next-action' });
-  if (data.limits) row.append(h('p', { class: 'limits' }, data.limits));
   if (data.next_action) row.append(h('p', { class: 'next' }, h('strong', {}, 'Next action: '), data.next_action));
 
   const buttons = h('div', { class: 'actions' });
