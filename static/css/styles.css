@@ -74,16 +74,24 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (prefers-reduced-motion: reduce) { .icon--spin { animation: none; } }
 
 /* 3. Answer panel */
-.answer { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; }
-.answer__heading {
-  margin: 0 0 2px; font-size: 14px; font-weight: 700; letter-spacing: .05em;
-  text-transform: uppercase; color: var(--muted);
+/* The answer is the main content; alerts sit around it, not over it. */
+.answer {
+  background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+  padding: 0 18px 14px;
+  box-shadow: 0 1px 2px rgba(0, 38, 87, .08), 0 4px 12px rgba(0, 38, 87, .06);
 }
-.answer__text { margin: 0; }
+/* Heading as a filled tab hanging from the top edge of the card */
+.answer__heading {
+  display: inline-block; margin: 0 0 10px; padding: 4px 10px; border-radius: 0 0 6px 6px;
+  background: var(--navy); color: var(--white);
+  font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
+.answer__text { margin: 0; font-size: 21px; line-height: 1.4; font-weight: 600; color: var(--navy); }
 .answer__text:focus { outline: none; }
-.answer--held { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; background: #F4F6F9; border-style: dashed; }
-.answer--held .answer__heading { width: 100%; }
-.answer__held { margin: 0; flex: 1 1 280px; color: var(--muted); }
+/* Held back: same panel weight, so the analyst sees there is an answer waiting. */
+.answer--held .answer__heading { background: var(--muted); }
+.answer__held-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.answer__held { margin: 0; flex: 1 1 280px; font-size: 17px; color: var(--text); }
 
 /* 4. Excerpt cards. A/B colours are positional only, never good/bad. */
 .evidence { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
