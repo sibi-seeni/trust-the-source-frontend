@@ -1,7 +1,8 @@
 /* Trust layer warning screen. Colours follow the Module 10 deck. */
 :root {
   --blue: #0021A5;    /* Excerpt A, primary buttons, links */
-  --orange: #FA4616;  /* Excerpt B, review-needed and failed banners (fills and borders only) */
+  --orange: #FA4616;  /* Review-needed and failed banners only (fills and borders only) */
+  --plum: #5B2A86;    /* Excerpt B. Kept apart from the warning orange so B never reads as the "bad" source */
   --navy: #002657;    /* Headings, question text */
   --text: #172B46;    /* Body copy */
   --fill: #EEF3FA;    /* Card background */
@@ -111,7 +112,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   background: var(--white); border: 1px solid var(--border); border-top: 6px solid var(--accent);
   padding: 10px 14px;
 }
-.excerpt--b { --accent: var(--orange); --tint: rgba(250, 70, 22, .16); }
+.excerpt--b { --accent: var(--plum); --tint: rgba(91, 42, 134, .12); }
 .excerpt:focus { outline: 3px solid var(--navy); outline-offset: 2px; }
 .excerpt__title { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: .06em; color: var(--navy); }
 .excerpt__text { margin: 0; font-size: 17px; overflow-wrap: anywhere; }
