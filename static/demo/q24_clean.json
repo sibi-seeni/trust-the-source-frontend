@@ -1,8 +1,8 @@
 {
   "question_id": "q24",
   "case": "clean",
-  "question": "According to the 2025 instructions, what amount fills the blank? \"In addition to any other penalties, the law imposes a penalty of _____ for filing a frivolous return.\"",
-  "answer": "The amount is $5,000 for filing a frivolous return.",
+  "question": "What is the penalty for filing a frivolous tax return?",
+  "answer": "The law imposes a $5,000 penalty for filing a frivolous return, in addition to any other penalties.",
   "status": "all_clear",
   "status_reason": "values match the 2024 edition.",
   "limits": "We compared the values with the 2024 edition. We did not check documents outside the library.",
@@ -37,5 +37,5 @@
   ],
   "checks_failed": [],
   "model": "deepseek/deepseek-v4.1-flash",
-  "generated_at": "2026-11-24T16:11:20Z"
+  "generated_at": "2026-11-24T16:40:05Z"
 }

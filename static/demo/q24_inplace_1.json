@@ -1,8 +1,8 @@
 {
   "question_id": "q24",
   "case": "inplace_1",
-  "question": "According to the 2025 instructions, what amount fills the blank? \"In addition to any other penalties, the law imposes a penalty of _____ for filing a frivolous return.\"",
-  "answer": "According to the 2025 Form 1040 instructions, the penalty for filing a frivolous return is $4,000.",
+  "question": "What is the penalty for filing a frivolous tax return?",
+  "answer": "Under the 2025 Form 1040 instructions, the law imposes a penalty of $4,000 for filing a frivolous return, in addition to any other penalties. A frivolous return is one that omits information needed to figure the correct tax or shows a substantially incorrect tax because of a frivolous position or a desire to delay or interfere with the tax laws.",
   "status": "review_needed",
   "status_reason": "This value differs from the 2024 edition.",
   "limits": "We found a difference. We have not established which value applies.",
@@ -37,5 +37,5 @@
   ],
   "checks_failed": [],
   "model": "deepseek/deepseek-v4.1-flash",
-  "generated_at": "2026-11-24T16:11:17Z"
+  "generated_at": "2026-11-24T16:39:59Z"
 }

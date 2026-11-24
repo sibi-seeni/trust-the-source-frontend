@@ -15,7 +15,7 @@ python3 -m http.server 8000
 
 Open <http://localhost:8000>. (`python3 server.py` from the repo root works too.) Don't open `index.html` directly: browsers block loading the JSON from `file://`.
 
-The **Demo case** dropdown is built from `static/demo/index.json`. Each case is a real trust-layer run on DeepSeek V4.1 Flash, generated ahead of time by `make_demo_json.py` in `signet-track-1-cleanup/experiments/b-prototype` (see `WARNING_SCREEN.md` there). The run date and model show next to the dropdown. Link straight to one with `?state=q24_inplace_1`.
+The **Demo case** dropdown is built from `static/demo/index.json`. Each case is a real trust-layer run on DeepSeek V4.1 Flash, generated ahead of time by `make_demo_json.py` in `signet-track-1-cleanup/experiments/b-prototype` (see `WARNING_SCREEN.md` there). The run date and model show next to the dropdown. Questions are worded the way an analyst would ask them (`data/demo_questions.json` in the backend); the landing page lists them, and typing one opens its first case. Link straight to one with `?state=q24_inplace_1`.
 
 **Live mode (stretch).** Start `python live_server.py 8001` in the backend and open <http://localhost:8000/?live=http://localhost:8001>. Each case is then checked when you pick it (about 1 to 3 s). No reply within 20 s shows CHECK DID NOT RUN.
 
@@ -41,8 +41,8 @@ The screen renders only this object. Its schema is `schema/screen_response.schem
 {
   "question_id": "q24",
   "case": "inplace_1",
-  "question": "According to the 2025 instructions, what amount fills the blank? ...",
-  "answer": "According to the 2025 Form 1040 instructions, the penalty ... is $4,000.",
+  "question": "What is the penalty for filing a frivolous tax return?",
+  "answer": "Under the 2025 Form 1040 instructions, the law imposes a penalty of $4,000 for filing a frivolous return, ...",
   "status": "review_needed",
   "status_reason": "This value differs from the 2024 edition.",
   "limits": "We found a difference. We have not established which value applies.",
