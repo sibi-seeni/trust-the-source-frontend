@@ -1,0 +1,30 @@
+{
+  "question_id": "q01",
+  "case": "inplace_1",
+  "question": "According to the 2025 instructions, what amount fills the blank? \"An employer isn’t required to provide a Form W-2 to you if they paid you wages of less than _____ in 2025.\"",
+  "answer": "According to the 2025 Form 1040 instructions, the blank is filled with $2,240 — an employer isn't required to provide a Form W-2 if they paid you wages of less than that amount in 2025.",
+  "status": "not_verified",
+  "status_reason": "this value changes yearly, so it was not compared.",
+  "limits": "We could not compare this value with the 2024 edition, so an edit would look the same as a real revision.",
+  "next_action": "Confirm the value with a second source before relying on it.",
+  "excerpts": [
+    {
+      "label": "A",
+      "role": "current",
+      "text": "that was not re- ported on Form(s) W -2. An employer isn’t required to provide a Form W -2 to you if they paid you wages of less than $2,240 in 2025. For information on em- ployment taxes for household employ- ees, see Tax Topic 756. Line 1c Tip Income Not Reported on Line 1a Enter the total of your tip income that was not reported on Form 1040, line 1a.…",
+      "passage": "that was not re- ported on Form(s) W -2. An employer isn’t required to provide a Form W -2 to you if they paid you wages of less than $2,240 in 2025. For information on em- ployment taxes for household employ- ees, see Tax Topic 756. Line 1c Tip Income Not Reported on Line 1a Enter the total of your tip income that was not reported on Form 1040, line 1a. This should include any tip income you didn’t report to your employer and any allocated tips shown in box 8 on your Form(s) W-2 unless you can prove that your unreported tips are less than the amount in box 8. Allocated tips aren’t included as income in box 1.",
+      "highlight": "$2,240",
+      "doc_title": "Instructions for Form 1040",
+      "doc_version": "2025",
+      "locator": "Form 1040 Instructions 2025#175",
+      "source_url": ""
+    }
+  ],
+  "checks_run": [
+    "version_check",
+    "prior_edition_comparison"
+  ],
+  "checks_failed": [],
+  "model": "deepseek/deepseek-v4.1-flash",
+  "generated_at": "2026-11-24T16:11:19Z"
+}

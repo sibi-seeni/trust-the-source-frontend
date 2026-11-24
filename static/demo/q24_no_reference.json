@@ -1,0 +1,31 @@
+{
+  "question_id": "q24",
+  "case": "no_reference",
+  "question": "According to the 2025 instructions, what amount fills the blank? \"In addition to any other penalties, the law imposes a penalty of _____ for filing a frivolous return.\"",
+  "answer": "The 2025 instructions state that the penalty is $5,000 for filing a frivolous return.",
+  "status": "check_failed",
+  "status_reason": "treat this answer as unchecked.",
+  "limits": "At least one check did not finish, so this answer was not fully checked.",
+  "next_action": "Open the sources yourself, or run the check again before relying on the answer.",
+  "excerpts": [
+    {
+      "label": "A",
+      "role": "current",
+      "text": "…Frivolous return. In addition to any other penalties, the law imposes a penal- ty of $5,000 for filing a frivolous return. A frivolous return is one that doesn’t contain information needed to figure the correct tax or shows a substantially in- correct tax because you take a frivolous position or desire to delay or interfere with the tax laws.…",
+      "passage": "to any unpaid tax on the return. This penal- ty is in addition to interest charges on late payments. Frivolous return. In addition to any other penalties, the law imposes a penal- ty of $5,000 for filing a frivolous return. A frivolous return is one that doesn’t contain information needed to figure the correct tax or shows a substantially in- correct tax because you take a frivolous position or desire to delay or interfere with the tax laws. This includes altering or striking out the preprinted language above the space where you sign. For a list of positions identified as frivolous, see Notice 2010-33, 2010-17 I.R.B. 609, available at IRS.gov/irb/ 2010-17_IRB#NOT-2010-33. Other. Other penalties can be imposed for, among other",
+      "highlight": "$5,000",
+      "doc_title": "Instructions for Form 1040",
+      "doc_version": "2025",
+      "locator": "Form 1040 Instructions 2025#840",
+      "source_url": ""
+    }
+  ],
+  "checks_run": [
+    "version_check"
+  ],
+  "checks_failed": [
+    "prior_edition_comparison"
+  ],
+  "model": "deepseek/deepseek-v4.1-flash",
+  "generated_at": "2026-11-24T16:11:22Z"
+}

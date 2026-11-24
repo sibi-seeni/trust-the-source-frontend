@@ -1,0 +1,41 @@
+{
+  "question_id": "q01",
+  "case": "both_editions",
+  "question": "According to the 2025 instructions, what amount fills the blank? \"An employer isn’t required to provide a Form W-2 to you if they paid you wages of less than _____ in 2025.\"",
+  "answer": "According to the 2025 Form 1040 instructions, the blank is filled with $2,800 — an employer isn't required to provide a Form W-2 if they paid you wages of less than $2,800 in 2025. (The comparable 2024 figure was $2,700, so the older edition doesn't apply.)",
+  "status": "outdated",
+  "status_reason": "the sources include the older 2024 edition.",
+  "limits": "We found an older edition among the sources. We have not checked which value applies to your case.",
+  "next_action": "Open the 2025 edition and confirm the value before you use this answer.",
+  "excerpts": [
+    {
+      "label": "A",
+      "role": "current",
+      "text": "that was not re- ported on Form(s) W -2. An employer isn’t required to provide a Form W -2 to you if they paid you wages of less than $2,800 in 2025. For information on em- ployment taxes for household employ- ees, see Tax Topic 756. Line 1c Tip Income Not Reported on Line 1a Enter the total of your tip income that was not reported on Form 1040, line 1a.…",
+      "passage": "that was not re- ported on Form(s) W -2. An employer isn’t required to provide a Form W -2 to you if they paid you wages of less than $2,800 in 2025. For information on em- ployment taxes for household employ- ees, see Tax Topic 756. Line 1c Tip Income Not Reported on Line 1a Enter the total of your tip income that was not reported on Form 1040, line 1a. This should include any tip income you didn’t report to your employer and any allocated tips shown in box 8 on your Form(s) W-2 unless you can prove that your unreported tips are less than the amount in box 8. Allocated tips aren’t included as income in box 1.",
+      "highlight": "$2,800",
+      "doc_title": "Instructions for Form 1040",
+      "doc_version": "2025",
+      "locator": "Form 1040 Instructions 2025#175",
+      "source_url": ""
+    },
+    {
+      "label": "B",
+      "role": "older_edition",
+      "text": "…Line 1b Household Employee Wages Not Reported on Form(s) W-2 Enter the total of your wages received as a household employee that was not re- ported on Form(s) W -2. An employer isn’t required to provide a Form W -2 to you if they paid you wages of less than $2,700 in 2024.…",
+      "passage": "Page 24 of 113 Fileid: … -form-1040/2024/a/xml/cycle10/source 15:10 - 3-Jan-2025 The type and rule above prints on all proofs including departmental reproduction proofs. MUST be removed before printing. Line 1b Household Employee Wages Not Reported on Form(s) W-2 Enter the total of your wages received as a household employee that was not re- ported on Form(s) W -2. An employer isn’t required to provide a Form W -2 to you if they paid you wages of less than $2,700 in 2024. For information on em- ployment taxes for household employ- ees, see Tax Topic 756. Line 1c Tip Income Not Reported on Line 1a Enter the total of your tip income that was not reported on Form 1040, line 1a.",
+      "highlight": "$2,700",
+      "doc_title": "Instructions for Form 1040",
+      "doc_version": "2024",
+      "locator": "Form 1040 Instructions 2024#172",
+      "source_url": ""
+    }
+  ],
+  "checks_run": [
+    "version_check",
+    "prior_edition_comparison"
+  ],
+  "checks_failed": [],
+  "model": "deepseek/deepseek-v4.1-flash",
+  "generated_at": "2026-11-24T16:11:18Z"
+}

@@ -34,8 +34,9 @@ export const STATES = {
     tone: 'notice', icon: ICONS.clock, answer: 'held', excerpts: 'shown',
   },
   not_verified: {
+    // Calm on purpose: about 45% of answers land here, and an alarming colour teaches people to ignore it.
     label: 'NOT VERIFIED:', defaultReason: 'we had nothing to check this source against.',
-    tone: 'notice', icon: ICONS.question, answer: 'shown', excerpts: 'shown',
+    tone: 'neutral', icon: ICONS.question, answer: 'shown', excerpts: 'shown',
   },
   check_failed: {
     label: 'CHECK DID NOT RUN:', defaultReason: 'treat this answer as unchecked.',

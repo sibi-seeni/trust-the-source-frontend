@@ -1,4 +1,4 @@
-import { describeSource, h, highlighted } from '../dom.js';
+import { describeRole, describeSource, h, highlighted } from '../dom.js';
 
 // The single "Open source" hook. Today: open the document at its page, or show
 // the passage in a dialog when there is no link. The workbench can point this
@@ -14,7 +14,7 @@ export function openSource(excerpt, { onClose } = {}) {
 
   dialog.replaceChildren(
     h('h2', { class: 'dialog__title', id: 'source-dialog-title' }, `Excerpt ${excerpt.label}: full passage`),
-    h('p', { class: 'dialog__meta' }, describeSource(excerpt)),
+    h('p', { class: 'dialog__meta' }, [describeRole(excerpt), describeSource(excerpt)].filter(Boolean).join(' · ')),
     h('blockquote', { class: 'dialog__text' }, ...highlighted(excerpt.passage || excerpt.text, excerpt.highlight)),
     h('p', { class: 'dialog__note' }, excerpt.passage
       ? 'No document link came with this result, so this shows the passage around the excerpt.'
