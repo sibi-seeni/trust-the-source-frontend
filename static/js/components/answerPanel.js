@@ -1,8 +1,8 @@
 import { h } from '../dom.js';
 import { STATES } from '../states.js';
 
-// Shows the AI answer, or holds it back until the analyst chooses to open it.
-export function renderAnswerPanel(data, { onShowAnswer }) {
+// Shows the AI answer, or holds it back until the analyst has looked at the sources.
+export function renderAnswerPanel(data) {
   const mode = STATES[data.status].answer;
   if (mode === 'hidden') return null;
 
@@ -17,18 +17,27 @@ export function renderAnswerPanel(data, { onShowAnswer }) {
   }
 
   text.hidden = true;
-  const note = h('p', { class: 'answer__held' }, 'The answer is held back until you have looked at the sources below.');
-  const reveal = h('button', {
-    type: 'button', class: 'btn btn--secondary', 'aria-expanded': 'false', 'aria-controls': 'answer-text',
+  panel.append(
+    h('p', { class: 'answer__held', id: 'answer-held' }, 'The answer is held back until you have looked at the sources below.'),
+    text);
+  return panel;
+}
+
+// "Show answer anyway" sits below the excerpts, in a quiet style, so the sources come
+// first (users click straight past warnings that offer the answer up front).
+export function renderRevealControl(data, { onShowAnswer }) {
+  if (STATES[data.status].answer !== 'held' || !data.answer) return null;
+  const button = h('button', {
+    type: 'button', class: 'btn btn--quiet', 'aria-expanded': 'false', 'aria-controls': 'answer-text',
     onclick: () => {
-      note.parentElement.remove();
+      const text = document.getElementById('answer-text');
+      document.getElementById('answer-held')?.remove();
       text.hidden = false;
-      panel.className = 'answer answer--revealed';
+      text.closest('.answer').className = 'answer answer--revealed';
+      button.parentElement.remove();
       text.focus();
       onShowAnswer();
     },
   }, 'Show answer anyway');
-
-  panel.append(h('div', { class: 'answer__held-row' }, note, reveal), text);
-  return panel;
+  return h('div', { class: 'reveal' }, button);
 }

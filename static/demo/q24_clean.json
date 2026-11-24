@@ -1,0 +1,41 @@
+{
+  "question_id": "q24",
+  "case": "clean",
+  "question": "According to the 2025 instructions, what amount fills the blank? \"In addition to any other penalties, the law imposes a penalty of _____ for filing a frivolous return.\"",
+  "answer": "The amount is $5,000 for filing a frivolous return.",
+  "status": "all_clear",
+  "status_reason": "values match the 2024 edition.",
+  "limits": "We compared the values with the 2024 edition. We did not check documents outside the library.",
+  "next_action": "Use the answer as usual, or open the sources to read the passages.",
+  "excerpts": [
+    {
+      "label": "A",
+      "role": "current",
+      "text": "…Frivolous return. In addition to any other penalties, the law imposes a penal- ty of $5,000 for filing a frivolous return. A frivolous return is one that doesn’t contain information needed to figure the correct tax or shows a substantially in- correct tax because you take a frivolous position or desire to delay or interfere with the tax laws.…",
+      "passage": "to any unpaid tax on the return. This penal- ty is in addition to interest charges on late payments. Frivolous return. In addition to any other penalties, the law imposes a penal- ty of $5,000 for filing a frivolous return. A frivolous return is one that doesn’t contain information needed to figure the correct tax or shows a substantially in- correct tax because you take a frivolous position or desire to delay or interfere with the tax laws. This includes altering or striking out the preprinted language above the space where you sign. For a list of positions identified as frivolous, see Notice 2010-33, 2010-17 I.R.B. 609, available at IRS.gov/irb/ 2010-17_IRB#NOT-2010-33. Other. Other penalties can be imposed for, among other",
+      "highlight": "$5,000",
+      "doc_title": "Instructions for Form 1040",
+      "doc_version": "2025",
+      "locator": "Form 1040 Instructions 2025#840",
+      "source_url": ""
+    },
+    {
+      "label": "B",
+      "role": "prior_edition",
+      "text": "…Frivolous return. In addition to any other penalties, the law imposes a penal- ty of $5,000 for filing a frivolous return. A frivolous return is one that doesn't contain information needed to figure the correct tax or shows a substantially in- correct tax because you",
+      "passage": "amount of any tax you owe, whichever is smaller. Late payment of tax. If you pay your taxes late, the penalty is usually 1/2 of 1% of the unpaid amount for each month or part of a month the tax isn't paid. The penalty can be as much as 25% of the unpaid amount. It applies to any unpaid tax on the return. This penal- ty is in addition to interest charges on late payments. Frivolous return. In addition to any other penalties, the law imposes a penal- ty of $5,000 for filing a frivolous return. A frivolous return is one that doesn't contain information needed to figure the correct tax or shows a substantially in- correct tax because you",
+      "highlight": "$5,000",
+      "doc_title": "Instructions for Form 1040",
+      "doc_version": "2024",
+      "locator": "Form 1040 Instructions 2024#817",
+      "source_url": ""
+    }
+  ],
+  "checks_run": [
+    "version_check",
+    "prior_edition_comparison"
+  ],
+  "checks_failed": [],
+  "model": "deepseek/deepseek-v4.1-flash",
+  "generated_at": "2026-11-24T16:11:20Z"
+}

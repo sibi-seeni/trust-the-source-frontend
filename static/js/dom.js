@@ -21,14 +21,26 @@ export function highlighted(text = '', highlight) {
   return [text.slice(0, at), h('mark', { class: 'hl' }, highlight), text.slice(at + highlight.length)];
 }
 
-// "2025 Instructions · version 2025 · Dec 2024 · page 3"
+// "Instructions for Form 1040 · 2025 edition · Form 1040 Instructions 2025#840"
+// We have chunk locators, not page numbers; a page still shows if a response has one.
 export function describeSource(excerpt) {
   return [
     excerpt.doc_title,
-    excerpt.doc_version && `version ${excerpt.doc_version}`,
+    excerpt.doc_version && `${excerpt.doc_version} edition`,
     excerpt.doc_date,
+    excerpt.locator,
     excerpt.page != null && excerpt.page !== '' && `page ${excerpt.page}`,
   ].filter(Boolean).join(' · ');
+}
+
+// What a card is, for its footer only. Never used to colour a card as the right one.
+const ROLE_TEXT = {
+  current: 'Current edition, retrieved',
+  older_edition: 'Older edition, retrieved',
+  prior_edition: 'Prior edition, compared against',
+};
+export function describeRole(excerpt) {
+  return ROLE_TEXT[excerpt.role] ?? '';
 }
 
 export async function copyText(text) {

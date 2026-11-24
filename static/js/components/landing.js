@@ -6,11 +6,11 @@ const ACCEPTED_TYPES = '.pdf,.doc,.docx,.txt,.md,.html';
 const files = [];
 
 // Signet landing page: the question box and a place to add documents.
-export function renderLanding({ onAsk, onDocumentsChanged }) {
+export function renderLanding({ onAsk, onDocumentsChanged }, cases = []) {
   const error = h('p', { class: 'field-error ask__error', id: 'ask-error', 'aria-live': 'polite' });
   const input = h('textarea', {
     id: 'ask-input', name: 'question', rows: '2', class: 'ask__input', 'aria-describedby': 'ask-error',
-    placeholder: 'What is the wage threshold in the 2025 instructions?',
+    placeholder: 'Ask one of the demo questions below',
     oninput: () => { error.textContent = ''; },
     onkeydown: (event) => {
       if (event.key === 'Enter' && !event.shiftKey) {
@@ -29,7 +29,9 @@ export function renderLanding({ onAsk, onDocumentsChanged }) {
         input.focus();
         return;
       }
-      onAsk(question, files.length);
+      if (!onAsk(question, files.length)) {
+        error.textContent = 'This demo checks only the test questions. Pick one below or from the menu above.';
+      }
     },
   },
     h('label', { for: 'ask-input', class: 'sr-only' }, 'Your question'),
@@ -41,7 +43,22 @@ export function renderLanding({ onAsk, onDocumentsChanged }) {
     h('p', { class: 'brand__tagline' }, 'Ask about your documents. Every answer is checked against its sources.'),
     form,
     error,
+    renderSuggestions(cases, input),
     renderUpload(onDocumentsChanged));
+}
+
+// The demo questions, one per question id. Clicking one fills the box.
+function renderSuggestions(cases, input) {
+  const seen = new Set();
+  const unique = cases.filter((c) => c.question && !seen.has(c.question_id) && seen.add(c.question_id));
+  if (!unique.length) return null;
+  return h('div', { class: 'suggest' },
+    h('p', { class: 'suggest__title' }, 'Demo questions'),
+    h('ul', { class: 'suggest__list' }, unique.map((c) => h('li', {},
+      h('button', {
+        type: 'button', class: 'link-btn suggest__item',
+        onclick: () => { input.value = c.question; input.focus(); },
+      }, c.question)))));
 }
 
 function renderUpload(onDocumentsChanged) {

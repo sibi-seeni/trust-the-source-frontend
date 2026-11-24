@@ -13,8 +13,9 @@
 <body>
   <!-- Demo-only controls. Not part of the product screen. -->
   <div class="demo-bar" role="region" aria-label="Demo controls">
-    <label for="scenario">Demo state</label>
+    <label for="scenario">Demo case</label>
     <select id="scenario"></select>
+    <span id="source-note" class="demo-bar__note"></span>
     <button type="button" id="rerun" class="demo-btn">Run again</button>
     <span class="demo-bar__spacer"></span>
     <button type="button" id="download-log" class="demo-btn">Download log (<span id="log-count">0</span>)</button>
@@ -36,6 +37,7 @@
       <section class="zone zone--sources" aria-labelledby="sources-label">
         <h2 class="zone__label" id="sources-label">Sources behind this answer</h2>
         <div class="area area--evidence" data-area="evidence"></div>
+        <div class="area area--reveal" data-area="reveal"></div>
         <div class="area area--limits" data-area="limits"></div>
         <div class="area area--actions" data-area="actions"></div>
       </section>
